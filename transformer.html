@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#9411;Transformers</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .display-flex{
+            display: flex;
+        }
+        @keyframes sliding {
+            0%{
+                background-color: yellow;
+                left: 0px;
+                top: 0px;
+            }
+            25%{
+                background-color: red;
+                top: 250px;
+            }
+            50%{
+                background-color: yellow;
+                top: 0px;
+            }
+            75%{
+                background-color: red;
+                top: 250px;
+            }
+            100%{
+                background-color: yellow;
+                left: 450px;
+                top: 0px;
+            }
+        }
+        .boll{
+            height: 300px;
+            width: 500px;
+            background-color: lightcyan;
+            margin-left: 50px;
+        }
+        .boll-play{
+            background-color: lightcoral;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            position: relative;
+            animation: sliding 3s ease-in-out 0.5s infinite alternate;
+            animation-play-state: running;
+        }
+
+        .box{
+            height: 50px;
+            width: 50px;
+            background-color: rgb(29, 222, 222);
+            border: 5px solid rgb(39, 253, 6);
+            margin: 100px;
+            margin-top: 20px;
+            transition: height 0.2s ease, width 0.2s linear, transform 1s ease;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: grey;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .border:hover .box{
+            width: 200px;
+            height: 200px;
+            transform: rotate(180deg);
+        }
+        .border{
+            border: 2px;
+            background-color: rgb(222, 57, 28);
+            height: 500px;
+            width: 500px;
+            margin-left: 200px;
+        }
+        .transform{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- <nav>
+        <button><a class="class" href="overflow.html">Overflow</a></button>
+        <button><a class="class" href="">Transform</a></button>
+        <button><a class="class" href="cricket play.html">Cricket-Play</a></button>
+    </nav> -->
+    <section class="display-flex">
+        <div>
+            <h1>Let's Play with Animation</h1>
+            <div class="boll">
+                <div class="boll-play"></div>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="transform">Transform.</h1>
+            <div class="border">
+                <div class="box">Transform</div>
+                <div class="box">Transform</div>
+            </div>
+        </div>
+    </section>
+
+    
+   
+   
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
